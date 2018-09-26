@@ -1,0 +1,14 @@
+2018-09-24 08:18:26 - ERROR - ToolBelt:138 - Thread 1 error initializing edu.harvard.hul.ois.fits.tools.mediainfo.MediaInfo: java.lang.InstantiationException  Message: edu.harvard.hul.ois.fits.tools.mediainfo.MediaInfo
+java.lang.InstantiationException: edu.harvard.hul.ois.fits.tools.mediainfo.MediaInfo
+	at java.lang.Class.newInstance(Class.java:427)
+	at edu.harvard.hul.ois.fits.tools.ToolBelt.createToolClassInstance(ToolBelt.java:166)
+	at edu.harvard.hul.ois.fits.tools.ToolBelt.init(ToolBelt.java:120)
+	at edu.harvard.hul.ois.fits.tools.ToolBelt.<init>(ToolBelt.java:56)
+	at edu.harvard.hul.ois.fits.Fits.<init>(Fits.java:242)
+	at edu.harvard.hul.ois.fits.Fits.<init>(Fits.java:122)
+	at edu.harvard.hul.ois.fits.Fits.<init>(Fits.java:111)
+	at edu.harvard.hul.ois.fits.Fits.main(Fits.java:293)
+Caused by: java.lang.NoSuchMethodException: edu.harvard.hul.ois.fits.tools.mediainfo.MediaInfo.<init>()
+	at java.lang.Class.getConstructor0(Class.java:3082)
+	at java.lang.Class.newInstance(Class.java:412)
+	... 7 more

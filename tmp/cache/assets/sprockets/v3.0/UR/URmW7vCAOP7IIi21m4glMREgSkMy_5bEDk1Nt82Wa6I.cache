@@ -1,0 +1,36 @@
+I"(function() {
+  if (typeof Turbolinks !== "undefined" && Turbolinks !== null) {
+    Turbolinks.HttpRequest.prototype.requestLoaded = function() {
+      return this.endRequest((function(_this) {
+        return function() {
+          var ref;
+          if ((200 <= (ref = _this.xhr.status) && ref < 300) || _this.xhr.status === 401) {
+            return _this.delegate.requestCompletedWithResponse(_this.xhr.responseText, _this.xhr.getResponseHeader("Turbolinks-Location"));
+          } else {
+            _this.failed = true;
+            return _this.delegate.requestFailedWithStatusCode(_this.xhr.status, _this.xhr.responseText);
+          }
+        };
+      })(this));
+    };
+    $(window).on('popstate', (function(_this) {
+      return function(event) {
+        var ref, ref1;
+        _this.turbolinks_location = Turbolinks.Location.wrap(window.location);
+        if (Turbolinks.controller.location.requestURL === _this.turbolinks_location.requestURL) {
+          return;
+        }
+        if ((ref = event.state) != null ? ref.turbolinks : void 0) {
+          return;
+        }
+        if (_this.window_turbolinks = (ref1 = window.history.state) != null ? ref1.turbolinks : void 0) {
+          return Turbolinks.controller.historyPoppedToLocationWithRestorationIdentifier(_this.turbolinks_location, _this.window_turbolinks.restorationIdentifier);
+        } else {
+          return Turbolinks.controller.historyPoppedToLocationWithRestorationIdentifier(_this.turbolinks_location, Turbolinks.uuid());
+        }
+      };
+    })(this));
+  }
+
+}).call(this);
+:ET
