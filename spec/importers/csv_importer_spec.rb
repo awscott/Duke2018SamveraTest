@@ -21,7 +21,8 @@ RSpec.describe CsvImporter do
   	image = Image.last
   	expect(image.title).to eq([original_title])
   end
-  it "adds the attachment to the Image" do
-  	skip 'yolo'
+  it "creates a Image work with a file_set associated with it" do
+    CsvImporter.new(one_line_example).import
+    expect(Image.last.file_sets.count).to eq(1)
   end
 end
