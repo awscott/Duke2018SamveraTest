@@ -1,7 +1,7 @@
 language: ruby
 rvm:
  - 2.5.1
-sudo: required
+#sudo: required
 cache: bundler
 dist: trusty
 
@@ -27,4 +27,3 @@ script:
   - xvfb-run -a bundle exec rake ci
 services:
   - redis-server
-  - postgresql
