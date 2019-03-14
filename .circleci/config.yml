@@ -15,12 +15,12 @@ default_environment: &default_environment
   SPEC_OPTS: --profile 10 --format RspecJunitFormatter --out /tmp/test-results/rspec.xml --format progress
   COVERALLS_PARALLEL: true
   NOKOGIRI_USE_SYSTEM_LIBRARIES: true
-  ENGINE_CART_RAILS_OPTIONS: '--skip-git --skip-bundle --skip-listen --skip-spring --skip-yarn --skip-keeps --skip-action-cable --skip-coffee --skip-puma --skip-test'
-  MAILSERVER: 'smtp.example.com'
-  MAILUSER: 'test@example.com'
-  MAILPASS: 'word'
-  SERVERNAME: 'localhost'
-  NFS_DIR: 'tmp'
+  ENGINE_CART_RAILS_OPTIONS: --skip-git --skip-bundle --skip-listen --skip-spring --skip-yarn --skip-keeps --skip-action-cable --skip-coffee --skip-puma --skip-test
+  MAILSERVER: smtp.example.com
+  MAILUSER: test@example.com
+  MAILPASS: word
+  SERVERNAME: localhost
+  NFS_DIR: tmp
 
 jobs:
   build:
